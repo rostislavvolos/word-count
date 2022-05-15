@@ -3,15 +3,10 @@ const wordCount = document.getElementById("wordCount");
 const clearBtn = document.getElementById("clearBtn");
 
 textField.addEventListener("input", () => {
-  let txt = textField.value.trim().split(/[\s-]/);
-  // wordCount.textContent.split(' ').join('-');
-  wordCount.textContent = txt.filter((item) => item).length;
+  let txt = textField.value.trim().split(/[^a-zA-Z]+/);
+  wordCount.textContent = txt.length;
   console.log(txt);
 });
-
-//   function dashBug() {
-//     let txt = textField.value.trim();
-//   }
 
 clearBtn.addEventListener("click", () => {
   textField.value = "";
